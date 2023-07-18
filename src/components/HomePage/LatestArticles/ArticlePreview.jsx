@@ -1,6 +1,9 @@
 import React from "react";
 
 const ArticlePreview = ({article}) => {
+  const date = new Date(article.created_at)
+  const dateShort = date.toString().slice(4,15)
+
   return (
     <section className="articlePreview">
       <hr className="hr"></hr>
@@ -9,7 +12,7 @@ const ArticlePreview = ({article}) => {
       <a className="articlePreviewInfo" href="#">Topic: {article.topic}</a>
       <a className="articlePreviewInfo" href="#">Comments: {article.comment_count}</a>
       <a className="articlePreviewInfo" href="#">Votes: {article.votes}</a>
-      <a className="articlePreviewInfo" href="#">Created At: {article.created_at}</a>
+      <a className="articlePreviewInfo" href="#">Created: {dateShort}</a>
       <p></p>
     </section>
   );
