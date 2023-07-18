@@ -213,6 +213,12 @@ footer {
   padding: 3px 5px
 }
 
+#endOfArticles {
+  padding: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
 @media only screen and (max-width: 768px) {
 
   .articlePreview {
