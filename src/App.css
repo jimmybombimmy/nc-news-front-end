@@ -1,0 +1,241 @@
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* ----------- NavBar ----------- */
+
+#navBar {
+  background-color: lightblue;
+  margin: 0;
+  display: flex;
+  height: 80px;
+}
+
+.ncNewsNavTitle {
+  margin: 0;
+  font-size: 2.5rem;
+  padding: 12px 40px;
+  display: inline-block;
+}
+
+#navLinks {
+  justify-content: right;
+  right: 0;
+  display: block;
+  height: 80px;
+  margin-left: auto;
+  margin-right: 40px;
+}
+
+.navTags {
+  font-size: 1.25rem;
+  position: relative;
+  top: 28px;
+  padding-right: 40px
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  height: 100px;
+  width: 100vw;
+  text-align: center;
+  background-color: darkgray;
+  position: relative;
+}
+
+/* ---------- Home Page ---------- */
+
+/* Welcome */
+
+#homePageWelcome {
+  padding: auto;
+  text-align: center;
+  font-size: 2rem;
+  height: 100px;
+  border: 1px solid;
+  margin: 0;
+  background-color: aliceblue;
+}
+
+#homePageWelcome h1 {
+  position: relative;
+  vertical-align: middle;
+  margin: 26px;
+}
+
+
+/* Topics */
+
+#topicsBox {
+  font-size: 1.2rem;
+  background-color: lightgrey;
+}
+
+@media only screen and (min-width: 769px) {
+  #topicsBox {
+    height: 225px;
+    width: 150px;
+    margin: 40px 0 40px 40px;
+    display: inline-block;
+    padding-top: 10px;
+  }
+
+  #topicsHeader {
+    text-align: center;
+    margin: 10px;
+  }
+
+  #topicList {
+    list-style-type: "\2796 ";
+    padding-right: 5px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #topicsBox {
+    width: 100vw;
+    margin: 0;
+  }
+
+  #topicsHeader {
+    display: none;
+  }
+
+  #topicList {
+    margin: 0;
+    text-align: center;
+  }
+
+  .topic {
+    display: inline-block;
+    padding: 5px 5vw
+  }
+}
+
+
+
+/* LatestArticles */
+
+#articlesListSection {
+  background-color: lightblue;
+  display: inline-block;
+}
+
+#latestArticlesHeader {
+  font-size: 2rem;
+}
+
+@media only screen and (min-width: 769px) {
+
+  #articlesListSection {
+    margin: 40px 0;
+
+    position: relative;
+    vertical-align: top;
+    width: 70vw;
+
+  }
+
+  #latestArticlesHeader {
+    margin: 0;
+    text-align: center;
+    padding-bottom: 40px;
+  }
+
+  #articlesListDisplay {
+    padding-left: 20px;
+    vertical-align: bottom;
+  }
+
+  #selectArticlesView {
+    margin: auto 20px;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  #articlesListSection {
+    border-top: 1px solid;
+    position: relative;
+    vertical-align: top;
+    width: 100vw;
+
+  }
+
+  #latestArticlesHeader {
+    margin: 0;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  #articlesListDisplay {
+    vertical-align: bottom;
+  }
+
+  #selectArticlesView {
+    margin: auto 20px;
+  }
+}
+
+/* ArticlePreview */
+
+#articlePreview {
+  padding: 20px 0;
+}
+
+#selectArticlesView {
+  padding-top: 24px;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.articlePreviewTitle {
+  margin: 5px 0 10px;
+  font-weight: 600;
+  font-size: 1.2rem
+}
+
+.hr {
+ 
+  width: 30%;
+  background-color: grey;
+  color: grey;
+  height: 1px;
+  border-width: 0;
+}
+
+
+.articlePreviewInfo {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 3px 5px
+}
+
+@media only screen and (max-width: 768px) {
+
+  .articlePreview {
+    text-align: center;
+    width: 80vw;
+    margin: auto;
+  }
+
+  .hr {
+    margin: 40px auto;
+  }
+
+
+}
+
+
+@media only screen and (min-width: 769px) {
+  .articlePreviewInfo {
+    margin-right: 10px;
+  }
+  
+  .hr {
+    margin: 20px auto;
+  }
+}
+
