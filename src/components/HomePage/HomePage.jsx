@@ -15,7 +15,7 @@ const HomePage = () => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get("http://localhost:9090/api/articles")
+      .get("https://nc-news-ajy0.onrender.com/api/articles")
       .then((response) => {
         const articles = response.data.articles;
         setAllArticles(articles);
@@ -35,11 +35,9 @@ const HomePage = () => {
       </section>
       <main id="homePageMainBody">
         <Topics />
-        {allArticles.length === 0 ? (
-        <h2>Loading Articles...</h2>
-      ) : (
-        <LatestArticles allArticles={allArticles}/>
-      )}
+     
+        <LatestArticles allArticles={allArticles} isLoading={isLoading}/>
+      {/* )} */}
       </main>
     </section>
   );
