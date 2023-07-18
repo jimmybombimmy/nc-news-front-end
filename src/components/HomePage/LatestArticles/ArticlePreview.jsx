@@ -1,7 +1,6 @@
 import React from "react";
 
 const ArticlePreview = ({article}) => {
-  // console.log(article);
   return (
     <section className="articlePreview">
       <hr className="hr"></hr>

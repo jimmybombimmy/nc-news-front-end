@@ -1,27 +1,26 @@
 import React from "react";
-import axios from 'axios'
 import { useState, useEffect } from "react";
 
 
 import Topics from "./Topics";
 import LatestArticles from "./LatestArticles/LatestArticles";
+import getAllArticles  from "../../api/api-calls";
+
 
 
 const HomePage = () => {
 
-  const [allArticles, setAllArticles] = useState([])
+  const [allArticles, setAllArticles] = useState()
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
-    axios
-      .get("https://nc-news-ajy0.onrender.com/api/articles")
-      .then((response) => {
-        const articles = response.data.articles;
+      getAllArticles()
+      .then((articles) => {
         setAllArticles(articles);
         return articles;
       })
-      .then((articles) => {
+      .then(() => {
         setIsLoading(false);
         
       });
@@ -37,7 +36,6 @@ const HomePage = () => {
         <Topics />
      
         <LatestArticles allArticles={allArticles} isLoading={isLoading}/>
-      {/* )} */}
       </main>
     </section>
   );

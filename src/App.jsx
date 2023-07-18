@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import "./App.css";
 import Header from "./components/Header";
 import HomePage from "./components/HomePage/HomePage";
@@ -13,10 +13,11 @@ function App() {
     <main>
       <Header />
       <Routes>
-        {/* Home Page Routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/articles" element={<HomePage />} />
+
+
 
       </Routes>
       <Footer />
