@@ -1,27 +1,26 @@
 import React from "react";
-import axios from 'axios'
 import { useState, useEffect } from "react";
 
 
 import Topics from "./Topics";
 import LatestArticles from "./LatestArticles/LatestArticles";
+import getAllArticles  from "../../api/api-calls";
+
 
 
 const HomePage = () => {
 
-  const [allArticles, setAllArticles] = useState([])
+  const [allArticles, setAllArticles] = useState()
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
-    axios
-      .get("http://localhost:9090/api/articles")
-      .then((response) => {
-        const articles = response.data.articles;
+      getAllArticles()
+      .then((articles) => {
         setAllArticles(articles);
         return articles;
       })
-      .then((articles) => {
+      .then(() => {
         setIsLoading(false);
         
       });
@@ -35,11 +34,8 @@ const HomePage = () => {
       </section>
       <main id="homePageMainBody">
         <Topics />
-        {allArticles.length === 0 ? (
-        <h2>Loading Articles...</h2>
-      ) : (
-        <LatestArticles allArticles={allArticles}/>
-      )}
+     
+        <LatestArticles allArticles={allArticles} isLoading={isLoading}/>
       </main>
     </section>
   );
