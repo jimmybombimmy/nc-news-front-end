@@ -16,7 +16,9 @@ const LatestArticles = ({allArticles}) => {
             {allArticles.map((article) => {
               return <ArticlePreview article={article} key={article.title} />;
             })}
+            <p id="endOfArticles">End of articles</p>
           </section>
+          
         </section>
     </section>
   );
