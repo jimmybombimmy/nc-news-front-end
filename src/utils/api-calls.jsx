@@ -18,4 +18,11 @@ const getArticleById = (id) => {
     })
 }
 
-export default {getAllArticles, getArticleById}
+const getArticleComments = (id) => {
+  return newsApi.get(`/articles/${id}/comments`)
+    .then((response) => {
+      return response.data
+    })
+}
+
+export default {getAllArticles, getArticleById, getArticleComments}
