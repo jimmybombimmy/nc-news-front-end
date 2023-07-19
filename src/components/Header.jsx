@@ -1,6 +1,6 @@
 const Header = () => {
   return <nav id="navBar">
-    <h1 className="ncNewsNavTitle">nc-news</h1>
+    <a className="ncNewsNavTitle" href="/">nc-news</a>
     <section id="navLinks">
       <a className="navTags" href="#">
         Link 1
