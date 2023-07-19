@@ -58,7 +58,7 @@ const Article = () => {
               </p>
             </section>
           </section>
-          <section classname="articleBody">
+          <section className="articleBody">
             <img
               className="articleImage"
               src={articleData.article_img_url}
