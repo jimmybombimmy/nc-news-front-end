@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 import Topics from "./Topics";
 import LatestArticles from "./LatestArticles/LatestArticles";
-import getAllArticles  from "../../api/api-calls";
+import api  from "../../utils/api-calls";
 
 
 
@@ -15,7 +15,7 @@ const HomePage = () => {
 
   useEffect(() => {
     setIsLoading(true);
-      getAllArticles()
+      api.getAllArticles()
       .then((articles) => {
         setAllArticles(articles);
         return articles;

@@ -16,6 +16,7 @@ const LatestArticles = ({ allArticles, isLoading }) => {
             })}
             <p id="endOfArticles">End of articles</p>
           </section>
+        )}
         </section>
     </section>
   );

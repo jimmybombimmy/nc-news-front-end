@@ -198,7 +198,7 @@ footer {
 }
 
 .hr {
- 
+
   width: 30%;
   background-color: grey;
   color: grey;
@@ -219,6 +219,8 @@ footer {
   font-size: 0.8rem;
 }
 
+
+
 @media only screen and (max-width: 768px) {
 
   .articlePreview {
@@ -235,13 +237,156 @@ footer {
 }
 
 
+
+
+/* ---------- Article Page ---------- */
+
+#articlePage {
+  background-color: azure;
+  display: grid;
+  border: 1px solid lightgrey
+}
+
 @media only screen and (min-width: 769px) {
-  .articlePreviewInfo {
-    margin-right: 10px;
-  }
-  
-  .hr {
-    margin: 20px auto;
+  #articlePage {
+    margin: 5% 15%;
+    padding: 3% 3%;
   }
 }
 
+@media only screen and (max-width: 768px) {
+  #articlePage {
+    padding: 8% 8%
+  }
+}
+
+/* Article Top Half */
+
+.articleTopHalfContainer {
+  margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+/* Article Votes Box */
+
+@media only screen and (min-width: 769px) {
+
+  .articleVotesBox {
+    display: inline-block;
+    background-color: grey;
+    height: 100px;
+    width: 80px;
+    position: absolute;
+    margin: 40px 0 0 40px;
+    justify-content: center;
+    /* height: 100%; */
+
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+  .articleVotesBox {
+    display: inline-block;
+    background-color: grey;
+    height: 40px;
+    width: 80px;
+    position: absolute;
+    margin: 40px 0 0 40px;
+    justify-content: center;
+    top: 200px;
+    /* height: 100%; */
+
+  }
+}
+
+/* Article Info */
+
+.articleTitle {
+  margin: 0;
+  font-size: 2.5rem;
+  width: 100%;
+}
+
+.articleInfo {
+  display: inline-block;
+
+  margin: 0 20px 0 0;
+  font-size: 0.9rem;
+
+}
+
+@media only screen and (min-width: 769px) {
+
+  .articleInfoBox {
+    width: 80%;
+    left: 20%;
+    position: relative;
+    text-align: right;
+  }
+
+
+}
+
+@media only screen and (max-width: 768px) {
+  .articleInfoBox {
+    width: 100%;
+    position: relative;
+    text-align: center;
+  }
+}
+
+/* Article Body */
+
+@media only screen and (min-width: 769px) {
+
+  .articleBody {
+    position: relative;
+    width: 80%;
+    margin-top: 40px;
+    /* right: 20% */
+  }
+  
+  .articleImage {
+    border: 1px solid;
+    text-align: center;
+    width: 70%;
+    margin-top: 60px;
+    
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+  .articleBody {
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+    /* right: 20% */
+  }
+  
+  .articleImage {
+    border: 1px solid;
+    text-align: center;
+    width: 70%;
+    position: relative;
+    left: 15%;
+    margin: 40px auto;
+  }
+
+}
+
+
+/* Post Comment */
+
+#commentSection {
+  margin: 40px auto;
+  text-align: center;
+  background-color: lightgrey;
+  border: 1px solid;
+  width: 60%
+
+}
