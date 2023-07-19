@@ -14,8 +14,8 @@ const getAllArticles = () => {
 const getArticleById = (id) => {
   return newsApi.get(`/articles/${id}`)
     .then((response) => {
-      console.log("newresponse", response.data)
+      return response.data
     })
 }
 
-export default getAllArticles
+export default {getAllArticles, getArticleById}
