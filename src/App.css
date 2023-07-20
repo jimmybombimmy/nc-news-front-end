@@ -5,36 +5,8 @@ body {
 
 /* ----------- NavBar ----------- */
 
-#navBar {
-  background-color: lightblue;
-  margin: 0;
-  display: flex;
-  height: 80px;
-}
-
-.ncNewsNavTitle {
-  margin: 0;
-  font-size: 2.5rem;
-  padding: 12px 40px;
-  display: inline-block;
-  color: black;
-  text-decoration: none;
-}
-
-#navLinks {
-  justify-content: right;
-  right: 0;
-  display: block;
-  height: 80px;
-  margin-left: auto;
-  margin-right: 40px;
-}
-
-.navTags {
-  font-size: 1.25rem;
-  position: relative;
-  top: 28px;
-  padding-right: 40px
+.container {
+  margin: 0 15vw;
 }
 
 /* ---------- Footer ---------- */
@@ -287,7 +259,6 @@ footer {
 
 
 .articleVotesSection {
-  /* position: ; */
   display: flex;
   position: absolute;
   right: 100%;
@@ -309,8 +280,6 @@ footer {
     height: 91px;
     width: 45px;
     align-items: center;
-    
-    /* margin: 40px 0 0 40px; */
     justify-content: center;
     border: 1px solid grey;
 
@@ -399,7 +368,6 @@ right: 0;
     position: relative;
     width: 80%;
     margin-top: 40px;
-    /* right: 20% */
   }
   
   .articleImage {
