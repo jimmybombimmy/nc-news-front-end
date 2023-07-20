@@ -292,14 +292,8 @@ footer {
   .articleVotesBox {
     display: inline-block;
     background-color: white;
-    height: 40px;
-    width: 130px;
-    position: absolute;
-    padding: 0 auto;
-    margin: 40px 0 0 40px;
+    position: relative;
     justify-content: center;
-    top: 136px;
-    left: 20px;
     border: 1px solid lightgrey;
     z-index: 1;
 
@@ -358,6 +352,16 @@ right: 0;
     position: relative;
     text-align: center;
   }
+
+  .articleTitle {
+    position: relative;
+    width: 90%;
+    left: 5%;
+  }
+  .articleInfoBox {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* Article Body */
@@ -393,7 +397,6 @@ right: 0;
     text-align: center;
     width: 70%;
     position: relative;
-    left: 15%;
     margin: 40px auto;
   }
 
