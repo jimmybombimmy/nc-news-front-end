@@ -272,16 +272,47 @@ footer {
 
 /* Article Votes Box */
 
+.thumbs {
+  color: grey;
+  background-color: white;
+  font-size: 32px;
+  border: 0;
+  
+}
+
+.thumbs:hover {
+  background-color: lightgrey;
+}
+
+
+
+.articleVotesSection {
+  /* position: ; */
+  display: flex;
+  position: absolute;
+  right: 100%;
+  width: 10%;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+#voteCount {
+  margin: 0px;
+}
+
 @media only screen and (min-width: 769px) {
 
   .articleVotesBox {
-    display: inline-block;
-    background-color: grey;
-    height: 100px;
-    width: 80px;
-    position: absolute;
-    margin: 40px 0 0 40px;
+    
+    background-color: white;
+    height: 91px;
+    width: 45px;
+    align-items: center;
+    
+    /* margin: 40px 0 0 40px; */
     justify-content: center;
+    border: 1px solid grey;
 
   }
 
@@ -291,14 +322,30 @@ footer {
 
   .articleVotesBox {
     display: inline-block;
-    background-color: grey;
+    background-color: white;
     height: 40px;
-    width: 80px;
+    width: 130px;
     position: absolute;
+    padding: 0 auto;
     margin: 40px 0 0 40px;
     justify-content: center;
-    top: 200px;
+    top: 136px;
+    left: 20px;
+    border: 1px solid lightgrey;
+    z-index: 1;
 
+  }
+
+  .thumbs {
+    display: inline-block;
+    position: relative;
+    top: 3px;
+  }
+
+  #voteCount {
+    display: inline-block;
+    position: relative;
+    bottom: 6px
   }
 }
 
@@ -312,18 +359,24 @@ footer {
 
 .articleInfo {
   display: inline-block;
-
+  position: relative;
+right: 0;
   margin: 0 0 0 20px;
   font-size: 0.9rem;
-
 }
 
 @media only screen and (min-width: 769px) {
 
-  .articleInfoBox {
+  .articleTitleBox {
     width: 80%;
     left: 20%;
     position: relative;
+    text-align: right;
+    padding: 0
+  }
+
+  .articleInfoBox {
+    width: 100%;
     text-align: right;
   }
 
@@ -331,7 +384,7 @@ footer {
 }
 
 @media only screen and (max-width: 768px) {
-  .articleInfoBox {
+  .articleTitleBox {
     width: 100%;
     position: relative;
     text-align: center;
