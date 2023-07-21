@@ -3,6 +3,7 @@ import api from "../../utils/api-calls";
 import dateConverter from "../../utils/utils";
 import CommentView from "./CommentView";
 import Vote from "./Vote";
+import CommentAdder from "./CommentAdder";
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -45,19 +46,17 @@ const Article = () => {
       ) : (
         <section id="articlePage">
           <section id="articleTopHalf">
-            
             <section className="articleTitleBox">
-            <Vote articleData={articleData}/>
+              <Vote articleData={articleData} />
               <h1 className="articleTitle">{articleData.title}</h1>
-              
             </section>
             <section className="articleInfoBox">
-            <p className="articleInfo">author: {articleData.author}</p>
+              <p className="articleInfo">author: {articleData.author}</p>
               <p className="articleInfo">topic: {articleData.topic}</p>
               <p className="articleInfo">
                 created: {dateConverter(articleData.created_at)}
               </p>
-              </section>
+            </section>
           </section>
           <section className="articleBody">
             <img
@@ -68,10 +67,7 @@ const Article = () => {
             <p className="articleBody">{articleData.body}</p>
           </section>
           <section className="bodyCommentSeparation"></section>
-          <section id="commentSection">
-            <section id="postCommentBox"></section>
-            <h5>Post a comment box to be put here</h5>
-          </section>
+            <CommentAdder setArticleComments={setArticleComments} articleData={articleData}/>
           <section id="commentsViewSection">
             {articleCommentsLoading === true ? (
               <h2>Loading Comments...</h2>

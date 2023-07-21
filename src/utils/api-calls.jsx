@@ -32,4 +32,12 @@ const voteOnArticle = (id, vote) => {
     })
 }
 
-export default {getAllArticles, getArticleById, getArticleComments, voteOnArticle}
+const postComment = (id, {body, author}) => {
+  console.log(typeof id)
+  return newsApi.post(`/articles/${id}/comments`, id, {body, author})
+    .then((response) => {
+      console.log("rippy", response)
+    })
+}
+
+export default {getAllArticles, getArticleById, getArticleComments, voteOnArticle, postComment}

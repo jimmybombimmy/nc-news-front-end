@@ -52,9 +52,8 @@ const Vote = ({ articleData }) => {
           }}
         >
           thumb_up
-        </button>
-
-        <p id="voteCount" style={{ color: voteCountColor }}>
+        </button> 
+          <p id="voteCount" style={{ color: voteCountColor }}>
           {voteCount}
         </p>
         <button
