@@ -20,6 +20,7 @@ const CommentAdder = ({setArticleComments, articleData}) => {
     api.postComment(articleData.article_id, commentInfo).then((postedComment) => {
       console.log("pppp,", postedComment)
     })
+    .catch(console.log)
   }
 
   return (
