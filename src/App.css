@@ -277,8 +277,6 @@ footer {
   .articleVotesBox {
     
     background-color: white;
-    height: 91px;
-    width: 45px;
     align-items: center;
     justify-content: center;
     border: 1px solid grey;
@@ -308,7 +306,6 @@ footer {
   #voteCount {
     display: inline-block;
     position: relative;
-    bottom: 6px
   }
 }
 

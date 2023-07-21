@@ -1,26 +1,23 @@
 import React from "react";
+import { useState } from "react";
 import api from "../../utils/api-calls";
 import handleVoteErr from "../../utils/errors";
 
 const Vote = ({ articleData }) => {
-  let votes = articleData.votes;
-  let trueVotes;
+  const [articleLiked, setArticleLiked] = useState(false);
+  const [articleDisliked, setArticleDisliked] = useState(false);
 
-  let articleLiked = false;
-  let articleDisliked = false;
+  const [thumbUpColor, setThumbUpColor] = useState("grey");
+  const [thumbDownColor, setThumbDownColor] = useState("grey");
+  const [voteCountColor, setVoteCountColor] = useState("grey");
+  const [voteCount, setVoteCount] = useState(articleData.votes);
+
+  const [disableVotes, setDisableVotes] = useState(false)
 
   function articleVote(num) {
-    if (trueVotes === undefined) {
-      trueVotes = votes + num;
-      document.getElementById("voteCount").innerText = trueVotes;
-    } else {
-      trueVotes += num;
-      document.getElementById("voteCount").innerText = trueVotes;
-    }
+    setVoteCount(voteCount + num);
     return { inc_votes: num };
   }
-
-  
 
   return (
     <section className="articleVotesSection">
@@ -28,60 +25,64 @@ const Vote = ({ articleData }) => {
         <button
           id="thumbUp"
           className="material-symbols-outlined thumbs"
-          disabled={false}
+          disabled={disableVotes}
+          style={{ color: thumbUpColor }}
           onClick={() => {
             if (articleLiked === false) {
               if (articleDisliked === true) {
                 api
                   .voteOnArticle(articleData.article_id, articleVote(2))
-                  .catch(handleVoteErr)
-                articleDisliked = false;
+                  .catch((err) => {handleVoteErr(err, setDisableVotes, setVoteCount, setThumbUpColor, setThumbDownColor, setVoteCountColor)});
+                setArticleDisliked(false);
               } else {
                 api
                   .voteOnArticle(articleData.article_id, articleVote(1))
-                  .catch(handleVoteErr)
+                  .catch((err) => {handleVoteErr(err, setDisableVotes, setVoteCount, setThumbUpColor, setThumbDownColor, setVoteCountColor)});
               }
-              document.getElementById("voteCount").style.color = "green";
-              document.getElementById("thumbUp").style.color = "green";
-              document.getElementById("thumbDown").style.color = "grey";
-              articleLiked = true;
+              setVoteCountColor("green");
+              setThumbUpColor("green");
+              setThumbDownColor("grey");
+              setArticleLiked(true);
             } else {
               api.voteOnArticle(articleData.article_id, articleVote(-1));
-              document.getElementById("voteCount").style.color = "grey";
-              document.getElementById("thumbUp").style.color = "grey";
-              articleLiked = false;
+              setVoteCountColor("grey");
+              setThumbUpColor("grey");
+              setArticleLiked(false);
             }
           }}
         >
           thumb_up
         </button>
 
-        <p id="voteCount">{votes}</p>
+        <p id="voteCount" style={{ color: voteCountColor }}>
+          {voteCount}
+        </p>
         <button
           id="thumbDown"
           className="material-symbols-outlined thumbs"
-          disabled={false}
+          disabled={disableVotes}
+          style={{ color: thumbDownColor }}
           onClick={() => {
             if (articleDisliked === false) {
               if (articleLiked === true) {
                 api
                   .voteOnArticle(articleData.article_id, articleVote(-2))
-                  .catch(handleVoteErr)
-                articleLiked = false;
+                  .catch((err) => {handleVoteErr(err, setDisableVotes, setVoteCount, setThumbUpColor, setThumbDownColor, setVoteCountColor)});
+                setArticleLiked(false);
               } else {
                 api
                   .voteOnArticle(articleData.article_id, articleVote(-1))
-                  .catch(handleVoteErr)
+                  .catch((err) => {handleVoteErr(err, setDisableVotes, setVoteCount, setThumbUpColor, setThumbDownColor, setVoteCountColor)});
               }
-              document.getElementById("voteCount").style.color = "red";
-              document.getElementById("thumbDown").style.color = "red";
-              document.getElementById("thumbUp").style.color = "grey";
-              articleDisliked = true;
+              setVoteCountColor("red");
+              setThumbDownColor("red");
+              setThumbUpColor("grey");
+              setArticleDisliked(true);
             } else {
               api.voteOnArticle(articleData.article_id, articleVote(1));
-              document.getElementById("voteCount").style.color = "grey";
-              document.getElementById("thumbDown").style.color = "grey";
-              articleDisliked = false;
+              setVoteCountColor("grey");
+              setThumbDownColor("grey");
+              setArticleDisliked(false);
             }
           }}
         >

@@ -26,7 +26,6 @@ const getArticleComments = (id) => {
 }
 
 const voteOnArticle = (id, vote) => {
-  const stringId = String(id)
   return newsApi.patch(`/articles/${id}`, vote)
     .then((response) => {
       return response
