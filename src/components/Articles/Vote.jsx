@@ -7,9 +7,11 @@ const Vote = ({ articleData }) => {
   const [articleLiked, setArticleLiked] = useState(false);
   const [articleDisliked, setArticleDisliked] = useState(false);
 
+  const [voteBorderColor, setVoteBorderColor] = useState("lightgrey")
   const [thumbUpColor, setThumbUpColor] = useState("grey");
   const [thumbDownColor, setThumbDownColor] = useState("grey");
   const [voteCountColor, setVoteCountColor] = useState("grey");
+  
   const [voteCount, setVoteCount] = useState(articleData.votes);
 
   const [disableVotes, setDisableVotes] = useState(false)
@@ -21,7 +23,7 @@ const Vote = ({ articleData }) => {
 
   return (
     <section className="articleVotesSection">
-      <section className="articleVotesBox">
+      <section className="articleVotesBox" style={{borderColor: voteBorderColor}}>
         <button
           id="thumbUp"
           className="material-symbols-outlined thumbs"
@@ -32,12 +34,12 @@ const Vote = ({ articleData }) => {
               if (articleDisliked === true) {
                 api
                   .voteOnArticle(articleData.article_id, articleVote(2))
-                  .catch((err) => {handleVoteErr(err, setDisableVotes, setVoteCount, setThumbUpColor, setThumbDownColor, setVoteCountColor)});
+                  .catch((err) => {handleVoteErr(err, setDisableVotes, setVoteCount, setThumbUpColor, setThumbDownColor, setVoteCountColor, setVoteBorderColor)});
                 setArticleDisliked(false);
               } else {
                 api
                   .voteOnArticle(articleData.article_id, articleVote(1))
-                  .catch((err) => {handleVoteErr(err, setDisableVotes, setVoteCount, setThumbUpColor, setThumbDownColor, setVoteCountColor)});
+                  .catch((err) => {handleVoteErr(err, setDisableVotes, setVoteCount, setThumbUpColor, setThumbDownColor, setVoteCountColor, setVoteBorderColor)});
               }
               setVoteCountColor("green");
               setThumbUpColor("green");
@@ -67,12 +69,12 @@ const Vote = ({ articleData }) => {
               if (articleLiked === true) {
                 api
                   .voteOnArticle(articleData.article_id, articleVote(-2))
-                  .catch((err) => {handleVoteErr(err, setDisableVotes, setVoteCount, setThumbUpColor, setThumbDownColor, setVoteCountColor)});
+                  .catch((err) => {handleVoteErr(err, setDisableVotes, setVoteCount, setThumbUpColor, setThumbDownColor, setVoteCountColor, setVoteBorderColor)});
                 setArticleLiked(false);
               } else {
                 api
                   .voteOnArticle(articleData.article_id, articleVote(-1))
-                  .catch((err) => {handleVoteErr(err, setDisableVotes, setVoteCount, setThumbUpColor, setThumbDownColor, setVoteCountColor)});
+                  .catch((err) => {handleVoteErr(err, setDisableVotes, setVoteCount, setThumbUpColor, setThumbDownColor, setVoteCountColor, setVoteBorderColor)});
               }
               setVoteCountColor("red");
               setThumbDownColor("red");
