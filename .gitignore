@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 src/components/HomePage/LatestArticles/_LatestArticlesBADIDEAWITHPAGESINFRONTEND.jsx
+todo.txt
 
 # Editor directories and files
 .vscode/*

@@ -25,4 +25,20 @@ const getArticleComments = (id) => {
     })
 }
 
-export default {getAllArticles, getArticleById, getArticleComments}
+const voteOnArticle = (id, vote) => {
+  return newsApi.patch(`/articles/${id}`, vote)
+    .then((response) => {
+      return response
+    })
+}
+
+const postComment = (id, commentInfo) => {
+  console.log(typeof id, commentInfo)
+  return newsApi.post(`/articles/${id}/comments`, commentInfo)
+    .then((response) => {
+      return response
+    })
+    // .catch(console.log)
+}
+
+export default {getAllArticles, getArticleById, getArticleComments, voteOnArticle, postComment}
