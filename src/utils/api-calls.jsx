@@ -33,12 +33,12 @@ const voteOnArticle = (id, vote) => {
 }
 
 const postComment = (id, commentInfo) => {
-  console.log(typeof id, commentInfo)
   return newsApi.post(`/articles/${id}/comments`, commentInfo)
     .then((response) => {
+      console.log(response)
       return response
     })
-    // .catch(console.log)
+    .catch()
 }
 
 export default {getAllArticles, getArticleById, getArticleComments, voteOnArticle, postComment}

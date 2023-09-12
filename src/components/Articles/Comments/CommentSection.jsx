@@ -6,10 +6,6 @@ import CommentView from "./CommentView";
 
 
 const CommentSection = ({articleComments, articleCommentsLoading}) => {
-
-  useEffect(() => {
-
-  }, [])
   
 
   return (

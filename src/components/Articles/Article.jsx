@@ -14,6 +14,7 @@ const Article = () => {
 
   const [articleComments, setArticleComments] = useState([]);
   const [articleCommentsLoading, setArticleCommentsLoading] = useState(true);
+  const [commentNotification, setCommentNotification] = useState("")
 
   
 
@@ -70,8 +71,7 @@ const Article = () => {
             <p className="articleBody">{articleData.body}</p>
           </section>
           <section className="bodyCommentSeparation"></section>
-            <CommentAdder articleComments={articleComments} setArticleComments={setArticleComments} articleData={articleData}/>
-            {/* Turn this comment view section into its own component and have it update when the comments are changed */}
+            <CommentAdder articleComments={articleComments} setArticleComments={setArticleComments} articleData={articleData} commentNotification={commentNotification} setCommentNotification={setCommentNotification}/>
             <CommentSection articleComments={articleComments} articleCommentsLoading={articleCommentsLoading} />
           
         </section>
