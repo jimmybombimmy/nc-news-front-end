@@ -1,24 +1,25 @@
 import React from "react";
 import { useState } from "react";
 
-import api from "../../utils/api-calls"
+import api from "../../../utils/api-calls"
 
 
-const CommentAdder = ({setArticleComments, articleData}) => {
+const CommentAdder = ({articleComments, setArticleComments, articleData}) => {
   const [newComment, setNewComment] = useState("")
 
-  setArticleComments
-  console.log("articool", articleData)
-
+  // setArticleComments
   const handleSubmit = (e) => {
     const commentInfo = {
       body: newComment,
-      author: 'lurker'
+      author: 'tickle122'
     }
     e.preventDefault()
-    console.log("eeeeee", e.target.value, e)
+
     api.postComment(articleData.article_id, commentInfo).then((postedComment) => {
-      console.log("pppp,", postedComment)
+      return setArticleComments([postedComment.data, ...articleComments])
+      
+    })
+    .then(() => {
     })
     .catch(console.log)
   }
@@ -27,11 +28,13 @@ const CommentAdder = ({setArticleComments, articleData}) => {
     <section id="commentSection">
       <form className="postComment" onSubmit={handleSubmit}>
         <label htmlFor="new-comment">Write a comment:</label>
-        <textarea id="new-comment" name="new-comment" cols="30" rows="5" onChange={(e) => {
+        <br />
+        <textarea id="new-comment" name="new-comment" cols="30" rows="3" onChange={(e) => {
             setNewComment(e.target.value)
-            console.log(newComment)
             }} />
+            <br />
         <button>Post Comment!</button>
+        <br />
       </form>
     </section>
   );

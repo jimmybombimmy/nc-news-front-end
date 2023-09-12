@@ -36,7 +36,7 @@ const postComment = (id, commentInfo) => {
   console.log(typeof id, commentInfo)
   return newsApi.post(`/articles/${id}/comments`, commentInfo)
     .then((response) => {
-      console.log("rippy", response)
+      return response
     })
     // .catch(console.log)
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import dateConverter from "../../utils/utils";
+import dateConverter from "../../../utils/utils";
 
 const CommentView = ({ comment }) => {
   return (
