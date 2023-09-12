@@ -33,7 +33,6 @@ const voteOnArticle = (id, vote) => {
 }
 
 const postComment = (id, commentInfo) => {
-  console.log(typeof id, commentInfo)
   return newsApi.post(`/articles/${id}/comments`, commentInfo)
     .then((response) => {
       return response

@@ -4,8 +4,9 @@ import { useState } from "react";
 import api from "../../../utils/api-calls"
 
 
-const CommentAdder = ({articleComments, setArticleComments, articleData}) => {
+const CommentAdder = ({articleComments, setArticleComments, articleData, commentNotification, setCommentNotification}) => {
   const [newComment, setNewComment] = useState("")
+  
 
   // setArticleComments
   const handleSubmit = (e) => {
@@ -20,11 +21,13 @@ const CommentAdder = ({articleComments, setArticleComments, articleData}) => {
       
     })
     .then(() => {
+      setCommentNotification("Comment Posted!")
     })
     .catch(console.log)
   }
 
   return (
+    <section>
     <section id="commentSection">
       <form className="postComment" onSubmit={handleSubmit}>
         <label htmlFor="new-comment">Write a comment:</label>
@@ -36,7 +39,11 @@ const CommentAdder = ({articleComments, setArticleComments, articleData}) => {
         <button>Post Comment!</button>
         <br />
       </form>
+      
     </section>
+    <h3 id="commentNotification">{commentNotification}</h3>
+    </section>
+    
   );
 };
 

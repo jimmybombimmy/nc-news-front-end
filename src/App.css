@@ -414,6 +414,11 @@ footer {
   border: 1px solid;
 }
 
+#commentNotification {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
 @media only screen and (min-width: 769px) {
 
   #commentSection {
