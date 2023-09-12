@@ -6,24 +6,38 @@ import api from "../../../utils/api-calls"
 
 const CommentAdder = ({articleComments, setArticleComments, articleData, commentNotification, setCommentNotification}) => {
   const [newComment, setNewComment] = useState("")
+  const [commentNotificationColour, setCommentNotificationColour] = useState("black")
+  const [commentError, setCommentError] = useState("")
   
+  function failedCommentNotify(err, message) {
+    setCommentNotification(`ERR${err}: ${message}`)
+    setCommentNotificationColour("red")
+  }
 
   // setArticleComments
   const handleSubmit = (e) => {
     const commentInfo = {
       body: newComment,
-      author: 'tickle122'
+      author: 'tickle122no'
     }
     e.preventDefault()
 
+    
+
     api.postComment(articleData.article_id, commentInfo).then((postedComment) => {
-      return setArticleComments([postedComment.data, ...articleComments])
-      
+      setArticleComments([postedComment.data, ...articleComments])
     })
     .then(() => {
       setCommentNotification("Comment Posted!")
+      setCommentNotificationColour("black")
+      setNewComment("")
     })
-    .catch(console.log)
+    .catch(err => {
+      if (err.response.status === 400) {
+        setNewComment("")
+        failedCommentNotify(err.response.status, err.response.data.message)
+      }
+    })
   }
 
   return (
@@ -32,8 +46,9 @@ const CommentAdder = ({articleComments, setArticleComments, articleData, comment
       <form className="postComment" onSubmit={handleSubmit}>
         <label htmlFor="new-comment">Write a comment:</label>
         <br />
-        <textarea id="new-comment" name="new-comment" cols="30" rows="3" onChange={(e) => {
+        <textarea id="new-comment" name="new-comment" cols="30" rows="3" value={newComment} onChange={(e) => {
             setNewComment(e.target.value)
+
             }} />
             <br />
         <button>Post Comment!</button>
@@ -41,7 +56,7 @@ const CommentAdder = ({articleComments, setArticleComments, articleData, comment
       </form>
       
     </section>
-    <h3 id="commentNotification">{commentNotification}</h3>
+    <h3 id="commentNotification" style={{color: commentNotificationColour}}>{commentNotification}</h3>
     </section>
     
   );
