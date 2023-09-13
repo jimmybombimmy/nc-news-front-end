@@ -496,3 +496,23 @@ footer {
     text-justify: inter-character;
   }
 }
+
+/* Comments End */
+
+#commentsEnd {
+  margin-top: 25px;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.8rem;
+  
+}
+
+#commentsEnd p {
+  margin-bottom: 0;
+}
+
+#scrollToTopClick {
+  color: rgb(90, 153, 153);
+  font-weight: 800;
+  cursor: pointer;
+}

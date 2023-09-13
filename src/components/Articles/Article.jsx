@@ -83,8 +83,8 @@ const Article = ({scrollToSection, scrollToTop, commentNotify}) => {
             
           />
           <section id="commentsEnd">
-            <p>End of comments</p>
-            <button onClick={() => {scrollToSection(scrollToTop)}}>Scroll to top</button>
+            <p >End of comments <br />
+            <a id="scrollToTopClick" onClick={() => {scrollToSection(scrollToTop)}}>Scroll to top</a></p>
           </section>
         </section>
       )}
