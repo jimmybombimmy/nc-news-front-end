@@ -5,19 +5,16 @@ import Vote from "./Vote";
 import CommentAdder from "./Comments/CommentAdder";
 import CommentSection from "./Comments/CommentSection";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 
-const Article = () => {
+const Article = ({scrollToSection, scrollToTop, commentNotify}) => {
   const [articleData, setArticleData] = useState([]);
   const [isArticleLoading, setIsArticleLoading] = useState(true);
 
   const [articleComments, setArticleComments] = useState([]);
   const [articleCommentsLoading, setArticleCommentsLoading] = useState(true);
-  const [commentNotification, setCommentNotification] = useState("")
-
-  
-
+  const [commentNotification, setCommentNotification] = useState("");
 
   const { article_id } = useParams();
 
@@ -71,9 +68,24 @@ const Article = () => {
             <p className="articleBody">{articleData.body}</p>
           </section>
           <section className="bodyCommentSeparation"></section>
-            <CommentAdder articleComments={articleComments} setArticleComments={setArticleComments} articleData={articleData} commentNotification={commentNotification} setCommentNotification={setCommentNotification}/>
-            <CommentSection articleComments={articleComments} articleCommentsLoading={articleCommentsLoading} />
-          
+          <CommentAdder
+            articleComments={articleComments}
+            setArticleComments={setArticleComments}
+            articleData={articleData}
+            commentNotification={commentNotification}
+            setCommentNotification={setCommentNotification}
+            scrollToSection={scrollToSection}
+            commentNotify={commentNotify}
+          />
+          <CommentSection
+            articleComments={articleComments}
+            articleCommentsLoading={articleCommentsLoading}
+            
+          />
+          <section id="commentsEnd">
+            <p >End of comments <br />
+            <a id="scrollToTopClick" onClick={() => {scrollToSection(scrollToTop)}}>Scroll to top</a></p>
+          </section>
         </section>
       )}
     </section>

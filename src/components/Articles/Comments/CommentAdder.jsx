@@ -4,7 +4,7 @@ import { useState } from "react";
 import api from "../../../utils/api-calls"
 
 
-const CommentAdder = ({articleComments, setArticleComments, articleData, commentNotification, setCommentNotification}) => {
+const CommentAdder = ({articleComments, setArticleComments, articleData, commentNotification, setCommentNotification, scrollToSection, commentNotify}) => {
   const [newComment, setNewComment] = useState("")
   const [commentNotificationColour, setCommentNotificationColour] = useState("black")
   const [commentError, setCommentError] = useState("")
@@ -12,6 +12,7 @@ const CommentAdder = ({articleComments, setArticleComments, articleData, comment
   function failedCommentNotify(err, message) {
     setCommentNotification(`ERR${err}: ${message}`)
     setCommentNotificationColour("red")
+    scrollToSection(commentNotify)
   }
 
   // setArticleComments
@@ -28,6 +29,7 @@ const CommentAdder = ({articleComments, setArticleComments, articleData, comment
       setArticleComments([postedComment.data, ...articleComments])
     })
     .then(() => {
+      scrollToSection(commentNotify)
       setCommentNotification("Comment Posted!")
       setCommentNotificationColour("black")
       setNewComment("")
@@ -55,8 +57,8 @@ const CommentAdder = ({articleComments, setArticleComments, articleData, comment
         <br />
       </form>
       
-    </section>
-    <h3 id="commentNotification" style={{color: commentNotificationColour}}>{commentNotification}</h3>
+    </section >
+    <h3 ref={commentNotify} id="commentNotify" style={{color: commentNotificationColour}}>{commentNotification}</h3>
     </section>
     
   );
