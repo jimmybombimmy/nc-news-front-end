@@ -5,7 +5,7 @@ import Vote from "./Vote";
 import CommentAdder from "./Comments/CommentAdder";
 import CommentSection from "./Comments/CommentSection";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 
 const Article = () => {
@@ -16,7 +16,15 @@ const Article = () => {
   const [articleCommentsLoading, setArticleCommentsLoading] = useState(true);
   const [commentNotification, setCommentNotification] = useState("")
 
-  
+
+  const commentNotify = useRef(null)
+
+  const scrollToSection = (elementRef) => {
+    window.scrollTo({
+      top: elementRef.current.offsetTop,
+      behavior: "smooth",
+    })
+  }
 
 
   const { article_id } = useParams();
@@ -71,7 +79,7 @@ const Article = () => {
             <p className="articleBody">{articleData.body}</p>
           </section>
           <section className="bodyCommentSeparation"></section>
-            <CommentAdder articleComments={articleComments} setArticleComments={setArticleComments} articleData={articleData} commentNotification={commentNotification} setCommentNotification={setCommentNotification}/>
+            <CommentAdder articleComments={articleComments} setArticleComments={setArticleComments} articleData={articleData} commentNotification={commentNotification} setCommentNotification={setCommentNotification} scrollToSection={scrollToSection} commentNotify={commentNotify}/>
             <CommentSection articleComments={articleComments} articleCommentsLoading={articleCommentsLoading} />
           
         </section>
