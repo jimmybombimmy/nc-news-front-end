@@ -14,18 +14,18 @@ const Article = () => {
 
   const [articleComments, setArticleComments] = useState([]);
   const [articleCommentsLoading, setArticleCommentsLoading] = useState(true);
-  const [commentNotification, setCommentNotification] = useState("")
+  const [commentNotification, setCommentNotification] = useState("");
 
-
-  const commentNotify = useRef(null)
+  const commentNotify = useRef(null);
+  const scrollToTop = useRef(null);
 
   const scrollToSection = (elementRef) => {
+    console.log(elementRef)
     window.scrollTo({
       top: elementRef.current.offsetTop,
       behavior: "smooth",
-    })
-  }
-
+    });
+  };
 
   const { article_id } = useParams();
 
@@ -52,7 +52,7 @@ const Article = () => {
   }, []);
 
   return (
-    <section>
+    <section ref={scrollToTop}>
       {isArticleLoading === true ? (
         <h2>Loading Article...</h2>
       ) : (
@@ -79,9 +79,24 @@ const Article = () => {
             <p className="articleBody">{articleData.body}</p>
           </section>
           <section className="bodyCommentSeparation"></section>
-            <CommentAdder articleComments={articleComments} setArticleComments={setArticleComments} articleData={articleData} commentNotification={commentNotification} setCommentNotification={setCommentNotification} scrollToSection={scrollToSection} commentNotify={commentNotify}/>
-            <CommentSection articleComments={articleComments} articleCommentsLoading={articleCommentsLoading} />
-          
+          <CommentAdder
+            articleComments={articleComments}
+            setArticleComments={setArticleComments}
+            articleData={articleData}
+            commentNotification={commentNotification}
+            setCommentNotification={setCommentNotification}
+            scrollToSection={scrollToSection}
+            commentNotify={commentNotify}
+          />
+          <CommentSection
+            articleComments={articleComments}
+            articleCommentsLoading={articleCommentsLoading}
+            
+          />
+          <section id="commentsEnd">
+            <p>End of comments</p>
+            <button onClick={() => {scrollToSection(scrollToTop)}}>Scroll to top</button>
+          </section>
         </section>
       )}
     </section>
