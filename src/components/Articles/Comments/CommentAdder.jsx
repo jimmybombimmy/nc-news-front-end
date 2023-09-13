@@ -19,7 +19,7 @@ const CommentAdder = ({articleComments, setArticleComments, articleData, comment
   const handleSubmit = (e) => {
     const commentInfo = {
       body: newComment,
-      author: 'tickle122no'
+      author: 'tickle122'
     }
     e.preventDefault()
 
