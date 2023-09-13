@@ -5,27 +5,16 @@ import Vote from "./Vote";
 import CommentAdder from "./Comments/CommentAdder";
 import CommentSection from "./Comments/CommentSection";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 
-const Article = () => {
+const Article = ({scrollToSection, scrollToTop, commentNotify}) => {
   const [articleData, setArticleData] = useState([]);
   const [isArticleLoading, setIsArticleLoading] = useState(true);
 
   const [articleComments, setArticleComments] = useState([]);
   const [articleCommentsLoading, setArticleCommentsLoading] = useState(true);
   const [commentNotification, setCommentNotification] = useState("");
-
-  const commentNotify = useRef(null);
-  const scrollToTop = useRef(null);
-
-  const scrollToSection = (elementRef) => {
-    console.log(elementRef)
-    window.scrollTo({
-      top: elementRef.current.offsetTop,
-      behavior: "smooth",
-    });
-  };
 
   const { article_id } = useParams();
 
@@ -52,7 +41,7 @@ const Article = () => {
   }, []);
 
   return (
-    <section ref={scrollToTop}>
+    <section>
       {isArticleLoading === true ? (
         <h2>Loading Article...</h2>
       ) : (
