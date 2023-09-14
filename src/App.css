@@ -23,6 +23,7 @@ footer {
 
 /* Welcome */
 
+
 #homePageWelcome {
   padding: auto;
   text-align: center;
@@ -39,12 +40,16 @@ footer {
   margin: 26px;
 }
 
+#homePageMainBody {
+  text-align: center;
+}
 
 /* Topics */
 
 #topicsBox {
   font-size: 1.2rem;
   background-color: lightgrey;
+  text-align: left;
 }
 
 .topic {
@@ -57,7 +62,7 @@ footer {
   #topicsBox {
     height: 225px;
     width: 150px;
-    margin: 40px 0 40px 40px;
+    margin: 40px 0 40px 0;
     display: inline-block;
     padding-top: 10px;
   }
@@ -102,6 +107,7 @@ footer {
 #articlesListSection {
   background-color: lightblue;
   display: inline-block;
+  text-align: left;
 }
 
 #latestArticlesHeader {
@@ -127,6 +133,7 @@ footer {
 
   #articlesListDisplay {
     padding-left: 20px;
+    padding-right: 20px;
     vertical-align: bottom;
   }
 
