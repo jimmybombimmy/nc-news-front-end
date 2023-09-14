@@ -26,20 +26,20 @@ const Topics = ({ setTopicQuery }) => {
     <section id="topicsBox">
       <h3 id="topicsHeader">Topics</h3>
       {topicsLoading !== false ? (
-        <p>Loading...</p>
+        <p className="loading">Loading...</p>
       ) : topics.length === 0 ? (
         <h3>No comments to display</h3>
       ) : (
         <ul id="topicList">
           <li
-                className="topic"
-                onClick={() => {
-                  setTopicQuery();
-                }}
-                key={"all"}
-              >
-                <Link to={`/articles/`}>Show All</Link>
-              </li>
+            className="topic"
+            onClick={() => {
+              setTopicQuery();
+            }}
+            key={"all"}
+          >
+            <Link to={`/articles/`}>Show All</Link>
+          </li>
           {topics.map((topic) => {
             return (
               <li

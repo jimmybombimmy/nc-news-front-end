@@ -9,7 +9,7 @@ const LatestArticles = ({ allArticles, isLoading, topicQuery}) => {
         <h3 id="selectArticlesView">Latest {topicQuery !== undefined ? (`- ${topicQuery}` ) : ("") }</h3>
         <h2 id="latestArticlesHeader">Latest Articles</h2>
         {isLoading === true ? (
-          <h2>Loading Articles...</h2>
+          <h2 className="loading">Loading Articles...</h2>
         ) : (
           <section id="articlesListDisplay">
             {allArticles.map((article) => {
