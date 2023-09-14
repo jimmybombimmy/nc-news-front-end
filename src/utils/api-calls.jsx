@@ -4,8 +4,13 @@ const newsApi = axios.create({
   baseURL: "https://nc-news-ajy0.onrender.com/api"
 })
 
-const getAllArticles = () => {
-  return newsApi.get("/articles")
+const getAllArticles = (topic) => {
+  let topicQuery = ""
+  if (topic !== undefined) {
+    topicQuery = `?topic=${topic}`
+  }
+
+  return newsApi.get(`/articles${topicQuery}`)
     .then((response) => {
       return response.data.articles;
     })
@@ -25,6 +30,13 @@ const getArticleComments = (id) => {
     })
 }
 
+const getTopics = () => {
+  return newsApi.get('/topics')
+    .then((response) => {
+      return response
+    })
+}
+
 const voteOnArticle = (id, vote) => {
   return newsApi.patch(`/articles/${id}`, vote)
     .then((response) => {
@@ -35,10 +47,11 @@ const voteOnArticle = (id, vote) => {
 const postComment = (id, commentInfo) => {
   return newsApi.post(`/articles/${id}/comments`, commentInfo)
     .then((response) => {
-      console.log(response)
       return response
     })
     .catch()
 }
 
-export default {getAllArticles, getArticleById, getArticleComments, voteOnArticle, postComment}
+
+
+export default {getAllArticles, getArticleById, getTopics, getArticleComments, voteOnArticle, postComment}

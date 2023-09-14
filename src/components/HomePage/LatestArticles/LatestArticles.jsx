@@ -1,7 +1,7 @@
 import React from "react";
 import ArticlePreview from "./ArticlePreview";
 
-const LatestArticles = ({ allArticles, isLoading }) => {
+const LatestArticles = ({ allArticles, isLoading}) => {
   return (
     <section id="articlesListSection">
       <section>

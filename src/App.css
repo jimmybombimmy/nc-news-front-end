@@ -47,6 +47,12 @@ footer {
   background-color: lightgrey;
 }
 
+.topic {
+  color: rgb(90, 153, 153);
+  font-weight: 800;
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 769px) {
   #topicsBox {
     height: 225px;
@@ -85,6 +91,7 @@ footer {
   .topic {
     display: inline-block;
     padding: 5px 5vw
+
   }
 }
 
