@@ -12,19 +12,19 @@ const HomePage = () => {
 
   const [allArticles, setAllArticles] = useState()
   const [isLoading, setIsLoading] = useState(true);
+  const [topicQuery, setTopicQuery] = useState()
 
   useEffect(() => {
     setIsLoading(true);
-      api.getAllArticles()
+      api.getAllArticles(topicQuery)
       .then((articles) => {
         setAllArticles(articles);
         return articles;
       })
       .then(() => {
         setIsLoading(false);
-        
       });
-  }, []);
+  }, [topicQuery]);
   
 
   return (
@@ -33,9 +33,9 @@ const HomePage = () => {
         <h1>Welcome to nc-news</h1>
       </section>
       <main id="homePageMainBody">
-        <Topics />
+        <Topics setTopicQuery={setTopicQuery} key={"topics"}/>
      
-        <LatestArticles allArticles={allArticles} isLoading={isLoading}/>
+        <LatestArticles allArticles={allArticles} isLoading={isLoading} topicQuery={topicQuery}/>
       </main>
     </section>
   );
