@@ -1,11 +1,12 @@
 import React from "react";
 import ArticlePreview from "./ArticlePreview";
 
-const LatestArticles = ({ allArticles, isLoading}) => {
+const LatestArticles = ({ allArticles, isLoading, topicQuery}) => {
+
   return (
     <section id="articlesListSection">
       <section>
-        <h3 id="selectArticlesView">Latest</h3>
+        <h3 id="selectArticlesView">Latest {topicQuery !== undefined ? (`- ${topicQuery}` ) : ("") }</h3>
         <h2 id="latestArticlesHeader">Latest Articles</h2>
         {isLoading === true ? (
           <h2>Loading Articles...</h2>

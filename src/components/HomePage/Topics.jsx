@@ -31,9 +31,16 @@ const Topics = ({ setTopicQuery }) => {
         <h3>No comments to display</h3>
       ) : (
         <ul id="topicList">
+          <li
+                className="topic"
+                onClick={() => {
+                  setTopicQuery();
+                }}
+                key={"all"}
+              >
+                <Link to={`/articles/`}>Show All</Link>
+              </li>
           {topics.map((topic) => {
-            {
-            }
             return (
               <li
                 className="topic"
