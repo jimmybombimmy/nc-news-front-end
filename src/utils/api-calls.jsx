@@ -4,10 +4,15 @@ const newsApi = axios.create({
   baseURL: "https://nc-news-ajy0.onrender.com/api"
 })
 
-const getAllArticles = (topic) => {
+const getAllArticles = (topic, sort_by, order) => {
   let topicQuery = ""
   if (topic !== undefined) {
     topicQuery = `?topic=${topic}`
+    if (sort_by !== undefined) {
+      topicQuery += `&sort_by=${sort_by}&order=${order}`
+    }
+  } else if (sort_by !== undefined) {
+    topicQuery += `?sort_by=${sort_by}&order=${order}`
   }
 
   return newsApi.get(`/articles${topicQuery}`)
