@@ -9,8 +9,10 @@ function useQuery() {
   return React.useMemo(() => new URLSearchParams(search), [search]);
 }
 
-const Topics = ({ setTopicQuery }) => {
+const Topics = ({ setTopicQuery, topicURL }) => {
   let query = useQuery();
+
+  console.log("topicURL", topicURL)
 
   const [topics, setTopics] = useState({});
   const [topicsLoading, setTopicsLoading] = useState(true);
@@ -34,11 +36,11 @@ const Topics = ({ setTopicQuery }) => {
           <li
             className="topic"
             onClick={() => {
-              setTopicQuery();
+              setTopicQuery("");
             }}
             key={"all"}
           >
-            <Link to={`/articles/`}>Show All</Link>
+            <Link to={`/articles${topicURL}`}>Show All</Link>
           </li>
           {topics.map((topic) => {
             return (
@@ -49,7 +51,7 @@ const Topics = ({ setTopicQuery }) => {
                 }}
                 key={topic.slug}
               >
-                <Link to={`/articles?topic=${topic.slug}`}> {topic.slug}</Link>
+                <Link to={`/articles${topicURL}`}> {topic.slug}</Link>
               </li>
             );
           })}

@@ -10,7 +10,7 @@ const LatestArticles = ({ allArticles, isLoading, topicQuery, handleOptionChange
       <section>
         <h3 id="selectArticlesView">
           <select onChange={handleOptionChange}>
-            <option label="--Sort by--" value="null"></option>
+            <option label="--Sort by--" value={["undefined", "undefined"]}></option>
             <optgroup label="Created At:">
               <option value={["created_at, desc"]}>
                 {" "}
