@@ -12,8 +12,6 @@ function useQuery() {
 const Topics = ({ setTopicQuery, topicURL, topicQuery, optionQuery, urlGet }) => {
   let query = useQuery();
 
-  console.log("topicURL", topicURL)
-
   const [topics, setTopics] = useState({});
   const [topicsLoading, setTopicsLoading] = useState(true);
 

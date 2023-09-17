@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Topics from "./Topics";
 import LatestArticles from "./LatestArticles/LatestArticles";
@@ -7,6 +8,7 @@ import api from "../../utils/api-calls";
 import {urlGet} from "../../utils/utils";
 
 const HomePage = () => {
+  const navigate = useNavigate()
   const [allArticles, setAllArticles] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [topicQuery, setTopicQuery] = useState();
@@ -14,7 +16,6 @@ const HomePage = () => {
   const [topicURL, setTopicURL] = useState("/");
   const [optionURL, setOptionURL] = useState("");
 
-  console.log("shoe get", urlGet(topicQuery, optionQuery));
 
   const handleOptionChange = (e) => {
     console.log("e.tv", e.target.value, typeof e.target.value);
@@ -24,16 +25,20 @@ const HomePage = () => {
     } else if (e.target.value[0] === "undefined") {
       setOptionQuery([undefined, undefined]);
     }
+    // navigate(urlGet(topicQuery, optionQuery))
   };
+
+
 
   useEffect(() => {
     setIsLoading(true);
 
     const url = urlGet(topicQuery, optionQuery);
-
+    
     api
       .getAllArticles(url)
       .then((articles) => {
+        
         setAllArticles(articles);
         return articles;
       })
