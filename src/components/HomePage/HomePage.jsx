@@ -1,52 +1,38 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-
 import Topics from "./Topics";
 import LatestArticles from "./LatestArticles/LatestArticles";
 import api from "../../utils/api-calls";
+import {urlGet} from "../../utils/utils";
 
 const HomePage = () => {
   const [allArticles, setAllArticles] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [topicQuery, setTopicQuery] = useState();
-  const [optionValue, setOptionValue] = useState([undefined, undefined]);
-  const [topicURL, setTopicURL] = useState("/")
+  const [optionQuery, setOptionQuery] = useState([undefined, undefined]);
+  const [topicURL, setTopicURL] = useState("/");
+  const [optionURL, setOptionURL] = useState("");
 
+  console.log("shoe get", urlGet(topicQuery, optionQuery));
 
   const handleOptionChange = (e) => {
-    console.log("e.tv", e.target.value, typeof e.target.value)
+    console.log("e.tv", e.target.value, typeof e.target.value);
     if (e.target.value !== "null") {
       const splitMe = e.target.value.match(/[A-Za-z_]+/g);
-      setOptionValue(splitMe);
-    } else if (e.target.value[0] === "undefined")  {
-      setOptionValue([undefined, undefined])
+      setOptionQuery(splitMe);
+    } else if (e.target.value[0] === "undefined") {
+      setOptionQuery([undefined, undefined]);
     }
   };
-
-  
-
-
 
   useEffect(() => {
     setIsLoading(true);
 
-    let tempTopicURL = ""
-
-    console.log(topicQuery.length)
-    
-  if (topicQuery != undefined && topicQuery.length > 0) {
-      setTopicURL(tempTopicURL += `?topic=${topicQuery}`)
-      if (optionValue[0] !== undefined && optionValue[0] !== "undefined") {
-        setTopicURL(tempTopicURL += `&sort_by=${optionValue[0]}&order=${optionValue[1]}`)
-      }
-    } else if (optionValue[0] !== undefined && optionValue[0] !== "undefined") {
-      setTopicURL(tempTopicURL += `?sort_by=${optionValue[0]}&order=${optionValue[1]}`)
-    }
-
+    const url = urlGet(topicQuery, optionQuery);
 
     api
-      .getAllArticles(topicURL)
+      .getAllArticles(url)
       .then((articles) => {
         setAllArticles(articles);
         return articles;
@@ -54,9 +40,7 @@ const HomePage = () => {
       .then(() => {
         setIsLoading(false);
       });
-  }, [topicQuery, optionValue]);
-
-  
+  }, [topicQuery, optionQuery]);
 
   return (
     <section className="homePageSectionFull">
@@ -64,7 +48,15 @@ const HomePage = () => {
         <h1>Welcome to nc-news</h1>
       </section>
       <main id="homePageMainBody">
-        <Topics setTopicQuery={setTopicQuery} topicURL={topicURL} key={"topics"} />
+        <Topics
+          setTopicQuery={setTopicQuery}
+          topicURL={topicURL}
+          optionURL={optionURL}
+          topicQuery={topicQuery}
+          optionQuery={optionQuery}
+          urlGet={urlGet}
+          key={"topics"}
+        />
 
         <LatestArticles
           allArticles={allArticles}

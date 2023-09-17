@@ -1,6 +1,6 @@
 import React from "react";
 import api from "../../utils/api-calls";
-import dateConverter from "../../utils/utils";
+import {dateConverter} from "../../utils/utils";
 import Vote from "./Vote";
 import CommentAdder from "./Comments/CommentAdder";
 import CommentSection from "./Comments/CommentSection";
