@@ -5,7 +5,6 @@ const newsApi = axios.create({
 })
 
 const getAllArticles = (topicURL) => {
-
   
 
   return newsApi.get(`/articles${topicURL}`)

@@ -9,7 +9,7 @@ function useQuery() {
   return React.useMemo(() => new URLSearchParams(search), [search]);
 }
 
-const Topics = ({ setTopicQuery, topicURL, topicQuery, optionQuery, urlGet }) => {
+const Topics = ({ setTopicQuery, optionQuery, urlGet }) => {
   let query = useQuery();
 
   const [topics, setTopics] = useState({});
