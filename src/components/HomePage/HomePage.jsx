@@ -20,22 +20,10 @@ const HomePage = () => {
   const topic = searchParams.get('topic')
   const sort_by = searchParams.get('sort_by')
   const order = searchParams.get('order')
-  
-
-  console.log(topic, sort_by, order)
-
-
-
 
   const handleOptionChange = (e) => {
     const newParams = new URLSearchParams (searchParams);
-    console.log("e.tv", e.target.value, typeof e.target.value);
     const undefinedCheck = e.target.value.split(0,9)
-    console.log("undefinfjksajhdgfsa", undefinedCheck)
-    // if (e.target.value[0].split(0,9) === "undefined") {
-    //   console.log("ass")
-    //   
-    // }
     if (e.target.value !== "null" && e.target.value !== "undefined") {
       const splitMe = e.target.value.match(/[A-Za-z_]+/g);
       setOptionQuery(splitMe);
@@ -45,7 +33,6 @@ const HomePage = () => {
     } else {
       setOptionQuery([undefined, undefined]);
     }
-    // navigate(urlGet(topicQuery, optionQuery))
   };
 
 
@@ -69,7 +56,6 @@ const HomePage = () => {
 
 
     const url = urlGet(topicQuery, optionQuery);
-    console.log("url", url)
     api
       .getAllArticles(url)
       .then((articles) => {
