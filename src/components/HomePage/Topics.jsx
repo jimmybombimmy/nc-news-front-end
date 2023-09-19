@@ -9,7 +9,7 @@ function useQuery() {
   return React.useMemo(() => new URLSearchParams(search), [search]);
 }
 
-const Topics = ({ setTopicQuery }) => {
+const Topics = ({ setTopicQuery, optionQuery, urlGet }) => {
   let query = useQuery();
 
   const [topics, setTopics] = useState({});
@@ -34,11 +34,11 @@ const Topics = ({ setTopicQuery }) => {
           <li
             className="topic"
             onClick={() => {
-              setTopicQuery();
+              setTopicQuery("");
             }}
             key={"all"}
           >
-            <Link to={`/articles/`}>Show All</Link>
+            <Link to={`/articles${urlGet(undefined, optionQuery)}`}>Show All</Link>
           </li>
           {topics.map((topic) => {
             return (
@@ -49,7 +49,7 @@ const Topics = ({ setTopicQuery }) => {
                 }}
                 key={topic.slug}
               >
-                <Link to={`/articles?topic=${topic.slug}`}> {topic.slug}</Link>
+                <Link to={`/articles${urlGet(topic.slug, optionQuery)}`}> {topic.slug}</Link>
               </li>
             );
           })}
