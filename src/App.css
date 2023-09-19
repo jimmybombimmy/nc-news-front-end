@@ -132,7 +132,7 @@ footer {
   #latestArticlesHeader {
     margin: 0;
     text-align: center;
-    padding-bottom: 40px;
+    padding: 40px 0 24px;
   }
 
   #articlesListDisplay {

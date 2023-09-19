@@ -1,6 +1,7 @@
 import React from "react";
 import ArticlePreview from "./ArticlePreview";
 import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 function useQuery() {
   const { search } = useLocation();
@@ -8,7 +9,8 @@ function useQuery() {
   return React.useMemo(() => new URLSearchParams(search), [search]);
 }
 
-const LatestArticles = ({ allArticles, isLoading, topicQuery, handleOptionChange}) => {
+const LatestArticles = ({ allArticles, isLoading, topicQuery, handleOptionChange, allArticlesHeader, setAllArticlesHeader}) => {
+  
   let query = useQuery();
 
   return (
@@ -46,7 +48,7 @@ const LatestArticles = ({ allArticles, isLoading, topicQuery, handleOptionChange
           
           {topicQuery !== undefined ? `- ${topicQuery}` : ""}
         </h3>
-        <h2 id="latestArticlesHeader">Latest Articles</h2>
+        <h2 id="latestArticlesHeader">{allArticlesHeader}</h2>
         {isLoading === true ? (
           <h2 className="loading">Loading Articles...</h2>
         ) : (
