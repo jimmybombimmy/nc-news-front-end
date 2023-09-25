@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
 import HomePage from "./components/HomePage/HomePage";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import Article from "./components/Articles/Article";
 
 import { Routes, Route } from "react-router-dom";
@@ -35,7 +35,7 @@ function App() {
 
 
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }

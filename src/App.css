@@ -5,6 +5,16 @@ body {
 
 /* ----------- NavBar ----------- */
 
+.nc-newsNav {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.navProfilePic {
+  height: 30px;
+  padding-left: 5px;
+
+}
+
 .container {
   margin: 0 15vw;
 }
@@ -112,6 +122,7 @@ footer {
   background-color: lightblue;
   display: inline-block;
   text-align: left;
+  min-height: 100vh;
 }
 
 #latestArticlesHeader {
