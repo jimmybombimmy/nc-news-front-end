@@ -23,14 +23,14 @@ const Header = ({scrollToTop}) => {
                 Link 3
               </Nav.Link>
               <Nav.Link href="#">
-                User123
+              <img className='navProfilePic' src={navProfilePic}/> - User123 
               </Nav.Link>
 
             </Nav>
           </Nav>
 
           <NavLink>
-                <img className='navProfilePic' src={navProfilePic}/>
+                
               </NavLink>
         </Navbar.Collapse>
       </Container>
