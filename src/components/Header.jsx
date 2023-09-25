@@ -21,9 +21,6 @@ const Header = ({scrollToTop}) => {
               <Nav.Link href="#" className="disabled">
                 Link 3
               </Nav.Link>
-              <Nav.Link href="#" className="disabled">
-              •
-              </Nav.Link>
               <Nav.Link href="#">
                 User123
               </Nav.Link>
