@@ -24,7 +24,7 @@ const Topics = ({ setTopicQuery, optionQuery, urlGet }) => {
 
   return (
     <section id="topicsBox">
-      <h3 id="topicsHeader">Topics</h3>
+      <h1 id="topicsHeader">Topics</h1>
       {topicsLoading !== false ? (
         <p className="loading">Loading...</p>
       ) : topics.length === 0 ? (

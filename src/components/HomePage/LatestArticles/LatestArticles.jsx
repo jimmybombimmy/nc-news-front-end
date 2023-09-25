@@ -1,7 +1,6 @@
 import React from "react";
 import ArticlePreview from "./ArticlePreview";
-import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 function useQuery() {
   const { search } = useLocation();
@@ -16,7 +15,7 @@ const LatestArticles = ({ allArticles, isLoading, topicQuery, handleOptionChange
   return (
     <section id="articlesListSection">
       <section>
-        <h3 id="selectArticlesView">
+        <h2 id="selectArticlesView">
           <select onChange={handleOptionChange}>
             <option label="--Sort by--" value={"undefined"}></option>
             <optgroup label="Created At:">
@@ -47,10 +46,10 @@ const LatestArticles = ({ allArticles, isLoading, topicQuery, handleOptionChange
           </select>{" "}
           
           {topicQuery !== undefined ? `- ${topicQuery}` : ""}
-        </h3>
+        </h2>
         <h2 id="latestArticlesHeader">{allArticlesHeader}</h2>
         {isLoading === true ? (
-          <h2 className="loading">Loading Articles...</h2>
+          <h3 className="loading">Loading Articles...</h3>
         ) : (
           <section id="articlesListDisplay">
             {allArticles.map((article) => {

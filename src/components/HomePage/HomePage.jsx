@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 
 import Topics from "./Topics";
@@ -9,7 +8,6 @@ import api from "../../utils/api-calls";
 import {urlGet} from "../../utils/utils";
 
 const HomePage = () => {
-  const navigate = useNavigate()
   const [allArticles, setAllArticles] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [topicQuery, setTopicQuery] = useState();
