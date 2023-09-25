@@ -7,6 +7,9 @@ body {
 
 .nc-newsNav {
   font-family: 'Press Start 2P', cursive;
+  background: -webkit-linear-gradient(right, #2caa0a, #4b7605);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .navProfilePic {
