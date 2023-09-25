@@ -11,11 +11,15 @@ const ArticlePreview = ({article}) => {
       <hr className="hr"></hr>
       <a className="articlePreviewTitle" href={`/articles/${article.article_id}`} onClick={() => {goToArticleId(article.article_id)}}>{article.title}</a>
       <br />
-      <p className="articlePreviewInfo">Author: {article.author}</p>
-      <p className="articlePreviewInfo">Topic: {article.topic}</p>
-      <p className="articlePreviewInfo">Comments: {article.comment_count}</p>
-      <p className="articlePreviewInfo">Votes: {article.votes}</p>
-      <p className="articlePreviewInfo">Created: {dateShort}</p>
+      <p className="articlePreviewInfo"><strong>Author:</strong> {article.author} </p>
+      {" "}
+      <p className="articlePreviewInfo"><strong>Topic:</strong> {article.topic} </p>
+      {" "}
+      <p className="articlePreviewInfo"><strong>Comments:</strong> {article.comment_count} </p>
+      {" "}
+      <p className="articlePreviewInfo"><strong>Votes:</strong> {article.votes} </p>
+      {" "}
+      <p className="articlePreviewInfo"><strong>Created:</strong> {dateShort} </p>
       <p></p>
     </section>
   );

@@ -99,9 +99,7 @@ const HomePage = () => {
 
   return (
     <section className="homePageSectionFull">
-      <section id="homePageWelcome">
-        <h1>Welcome to nc-news</h1>
-      </section>
+      
       <main id="homePageMainBody">
         <Topics
           setTopicQuery={setTopicQuery}
