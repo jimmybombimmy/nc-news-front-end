@@ -15,29 +15,29 @@ const LatestArticles = ({ allArticles, isLoading, topicQuery, handleOptionChange
   return (
     <section id="articlesListSection">
       <section>
-        <h2 id="selectArticlesView">
+        <section id="selectArticlesView">
           <select onChange={handleOptionChange}>
             <option label="--Sort by--" value={"undefined"}></option>
             <optgroup label="Created At:">
               <option value={["created_at, desc"]}>
                 {" "}
-                Latest Article - Oldest Article
+                Latest Articles
               </option>
               <option value={["created_at, asc"]}>
-                Oldest Article - Latest Article
+                Oldest Articles
               </option>
             </optgroup>
             <optgroup label="Top voted:">
               <option value={["votes", "desc"]}>
-                Highest Voted - Lowest Voted
+                Highest Voted
               </option>
               <option value={["votes", "asc"]}>
-                Lowest Voted - Highest Voted
+                Lowest Voted
               </option>
             </optgroup>
             <optgroup label="Comments:">
-              <option value={["comment_count", "desc"]}>Most Comments - Least Comments</option>
-              <option value={["comment_count", "asc"]}>Least Comments - Most Comments</option>
+              <option value={["comment_count", "desc"]}>Most Comments</option>
+              <option value={["comment_count", "asc"]}>Least Comments</option>
             </optgroup>
             <optgroup label="Topic">
               <option value={["topic", "asc"]}>Topics (A - Z)</option>
@@ -45,8 +45,9 @@ const LatestArticles = ({ allArticles, isLoading, topicQuery, handleOptionChange
             </optgroup>
           </select>{" "}
           
-          {topicQuery !== undefined ? `- ${topicQuery}` : ""}
-        </h2>
+          {topicQuery !== undefined && topicQuery.length > 1 ? `- ${topicQuery}` : ""}
+          {allArticles !== undefined ? (<p className="articleCount">Displaying {allArticles.length} Articles</p>) : <p className="articleCount"></p>}
+        </section>
         <h2 id="latestArticlesHeader">{allArticlesHeader}</h2>
         {isLoading === true ? (
           <h3 className="loading">Loading Articles...</h3>

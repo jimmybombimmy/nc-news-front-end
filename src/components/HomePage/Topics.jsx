@@ -35,8 +35,10 @@ const Topics = ({ setTopicQuery, optionQuery, urlGet }) => {
 
   return (
     <section id="topicsBox">
+      <section id="mainInTopicBox">
       <h1
         className="topicBoxHeader"
+        
         onClick={() => setOpenMain(!openMain)}
         aria-controls="example-collapse-text"
         aria-expanded={openMain}
@@ -45,17 +47,12 @@ const Topics = ({ setTopicQuery, optionQuery, urlGet }) => {
       </h1>
       <Collapse in={openMain}>
         <ul className="topicList" id="expand-collapse-text">
-          <li>
             <Link className="topic" to={"#"}>Liked</Link>
-          </li>
-          <li>
             <Link className="topic" to={"#"}>Commented</Link>
-          </li>
-          <li>
             <Link className="topic" to={"#"}>Suggested</Link>
-          </li>
         </ul>
       </Collapse>
+      </section>
       <h1
         className="topicBoxHeader"
         onClick={() => setOpenTopics(!openTopics)}
@@ -71,28 +68,22 @@ const Topics = ({ setTopicQuery, optionQuery, urlGet }) => {
       ) : (
         <Collapse in={openTopics}>
           <ul className="topicList">
-            <li
-              onClick={() => {
+              <Link className="topic" onClick={() => {
                 setTopicQuery("");
               }}
-              key={"all"}
-            >
-              <Link className="topic" to={`/articles${urlGet(undefined, optionQuery)}`}>
+              key={"all"} to={`/articles${urlGet(undefined, optionQuery)}`}>
                 Show All
               </Link>
-            </li>
             {topics.map((topic) => {
               return (
-                <li
-                  onClick={() => {
+                  <Link className="topic" onClick={() => {
                     setTopicQuery(topic.slug);
                   }}
-                  key={topic.slug}
-                >
-                  <Link className="topic" to={`/articles${urlGet(topic.slug, optionQuery)}`}>
+                  key={topic.slug} to={`/articles${urlGet(topic.slug, optionQuery)}`}>
                     {topic.slug}
                   </Link>
-                </li>
+                  
+              
               );
             })}
           </ul>

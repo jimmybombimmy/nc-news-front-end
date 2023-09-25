@@ -99,6 +99,7 @@ const HomePage = () => {
 
   return (
     <section className="homePageSectionFull">
+      
       <main id="homePageMainBody">
         <Topics
           setTopicQuery={setTopicQuery}
