@@ -4,6 +4,7 @@ import navProfilePic from '../img/Circle-icons-profile.png'
 const Header = ({scrollToTop}) => {
 
   return (
+    <section>
     <Navbar ref={scrollToTop} bg="light" variant="light" expand="lg">
       <Container>
         <Navbar.Brand href="/" className="nc-newsNav">nc-news</Navbar.Brand>
@@ -34,6 +35,8 @@ const Header = ({scrollToTop}) => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    <hr className="navHR"/>
+    </section>
   );
 };
 
