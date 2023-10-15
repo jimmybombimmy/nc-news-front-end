@@ -44,6 +44,13 @@ body {
 @media only screen and (max-width: 768px) {
   .container {
     margin: 0 10px;
+    
+  }
+
+  .navbar-toggler {
+    position: absolute;
+    right: 20px;
+    top: 12px;
   }
 
 }

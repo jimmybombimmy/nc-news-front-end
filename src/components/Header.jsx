@@ -4,12 +4,11 @@ import navProfilePic from '../img/Circle-icons-profile.png'
 const Header = ({scrollToTop}) => {
 
   return (
-    <section>
     <Navbar ref={scrollToTop} bg="light" variant="light" expand="lg">
       <Container>
         <Navbar.Brand href="/" className="nc-newsNav">nc-news</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse className="justify-content-end">
+        <Navbar.Collapse className="justify-content-end navBurger">
           <Nav>
             <Nav className="me-auto d-flex ">
               <Nav.Link href="/">Homepage</Nav.Link>
@@ -35,8 +34,6 @@ const Header = ({scrollToTop}) => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    <hr className="navHR"/>
-    </section>
   );
 };
 
