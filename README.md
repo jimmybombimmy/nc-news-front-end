@@ -22,9 +22,11 @@
 </ol>
 
 <h2>Created By:</h2>
-<p>James Peters</p>
-<p>Github: <a href="https://github.com/jimmybombimmy">jimmybombimmy</a></p>
-<p>LinkedIn: <a href="https://www.linkedin.com/in/jamespeters92/">jamespeters92</a></p>
+<p>James Peters 
+<br> 
+Github: <a href="https://github.com/jimmybombimmy">jimmybombimmy</a>
+<br>
+LinkedIn: <a href="https://www.linkedin.com/in/jamespeters92/">jamespeters92</a></p>
 
 <h2>Acknowledgement:</h2>
 <p>Special thanks to the team at Northcoders for teaching all the necessary skills to create this full-stack project.</p>
