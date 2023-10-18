@@ -22,7 +22,7 @@
 </ol>
 
 <h2>Created By:</h2>
-<p>James Peters 
+<p><strong>James Peters</strong>
 <br> 
 Github: <a href="https://github.com/jimmybombimmy">jimmybombimmy</a>
 <br>
